@@ -4,9 +4,9 @@ A "Matrix" is a two-dimensional data structure including values that are organiz
 
 The "Matrix" ADT can be implemented as a sequence of nodes including the following attributes:
 
-"value": The value of that node (i.e. the matrix element)
-"nextInRow": A pointer to the next element in the same row.
-"nextInColumn": A pointer to the next element in the same column.
+- "value": The value of that node (i.e. the matrix element)
+- "nextInRow": A pointer to the next element in the same row.
+- "nextInColumn": A pointer to the next element in the same column.
 
 The following example, shows how matrix "m" is represented in the memory.
 
@@ -16,18 +16,18 @@ The following example, shows how matrix "m" is represented in the memory.
 
 Implement the "Matrix" ADT including:
 
-A default constructor that creates an empty matrix. 
-A parameterized constructor that creates a matrix including the values of a two-dimensional array.
-A copy constructor and a copy assignment operator.
-A move constructor and a move assignment operator.
-A destructor.
-A method that returns a specific row of the metrix. This method may throw an exception.
-A method that returns a specific column of the matrix. This method may throw an exception.
-A method that returns a specific element of the matrix. This method may throw an exception.
-A method that returns the transpose of the matrix as a Matrix object.
-Overload the addition operator to add two matrices of the same size. This method may throw an exception.
-Overload the multiplication operator to multiply two matrices of compatible sizes. This method may throw an exception.
-Overload the stream insertion operator to insert a matrix in the matrix format into an output stream.
+- A default constructor that creates an empty matrix. 
+- A parameterized constructor that creates a matrix including the values of a two-dimensional array.
+- A copy constructor and a copy assignment operator.
+- A move constructor and a move assignment operator.
+- A destructor.
+- A method that returns a specific row of the metrix. This method may throw an exception.
+- A method that returns a specific column of the matrix. This method may throw an exception.
+- A method that returns a specific element of the matrix. This method may throw an exception.
+- A method that returns the transpose of the matrix as a Matrix object.
+- Overload the addition operator to add two matrices of the same size. This method may throw an exception.
+- Overload the multiplication operator to multiply two matrices of compatible sizes. This method may throw an exception.
+- Overload the stream insertion operator to insert a matrix in the matrix format into an output stream.
 
 **Part 2:**
 
@@ -40,5 +40,5 @@ Analyze the efficiency of your implementation and compare it with a contiguous i
 
 **Submission Instructions:**
 
-Do not zip your files. Submit each file as an individual attachment.
-Write your answers to the third part in a separate document and submit it in PDF format.
+1. Do not zip your files. Submit each file as an individual attachment.
+2. Write your answers to the third part in a separate document and submit it in PDF format.
