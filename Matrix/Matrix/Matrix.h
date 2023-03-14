@@ -8,7 +8,7 @@ public:
 	Node* nextInRow, * nextInCol;
 
 	Node();
-	Node(T& value);
+	Node(T& v);
 };
 
 template <typename T>
@@ -20,7 +20,7 @@ private:
 
 public:
 	Matrix();
-	Matrix(const array[][MAX], int rows, int cols); //check syntax on this
+	Matrix(const T array[][100], int arRows, int arCols); //check syntax on this
 	Matrix(const Matrix& obj);
 	Matrix(const Matrix&& obj);
 	Matrix& operator=(const Matrix& obj);
@@ -39,4 +39,3 @@ public:
 };
 
 #endif MATRIX_H
-
