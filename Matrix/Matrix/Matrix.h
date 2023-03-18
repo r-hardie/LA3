@@ -9,13 +9,14 @@ public:
 
 	Node();
 	Node(T& v);
+	Node* copyRow(Node row);
 };
 
 template <typename T>
 class Matrix
 {
 private:
-	Node* first;
+	Node* m;
 	int rows, cols;
 
 public:
