@@ -5,32 +5,30 @@ using namespace std;
 int main() {
 
 	//default constructor
-	Matrix<int>* emptyMatrix = new Matrix<int>();
+	Matrix* emptyMatrix = new Matrix();
 
 	//parameterized constructor
 	const int arrayRows = 5;
 	const int arrayCols = 3;
+	double arrayDataPoint = 0;
 
-	int** testArray = new int* [arrayRows];
+	double** testArray = new double* [arrayRows];
 	for (int i = 0; i < arrayRows; i++) {
-		testArray[i] = new int[arrayCols];
+		testArray[i] = new double[arrayCols];
 	}
 	for (int i = 0; i < arrayRows; i++) {
 		for (int j = 0; j < arrayCols; j++) {
-			testArray[i][j] = i + j;
+			testArray[i][j] = ++arrayDataPoint;
 		}
 	}
 
 	for (int i = 0; i < arrayRows; i++) {
 		for (int j = 0; j < arrayCols; j++) {
-			cout << testArray[i][j];
+			cout << testArray[i][j] << ' ';
 		}
 	}
 
-
-
-
-	//Matrix<int>* arrayMatrix = new Matrix<int>(testArray, arrayRows, arrayCols);
+	Matrix* arrayMatrix = new Matrix(testArray, arrayRows, arrayCols);
 
 
 	//copy constructor

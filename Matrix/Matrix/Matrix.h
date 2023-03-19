@@ -1,27 +1,25 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-template <typename T>
 class Node {
 public:
-	T value;
+	double value;
 	Node* nextInRow, * nextInCol;
 
 	Node();
-	Node(T& v);
-	Node* copyRow(Node row);
+	Node(double& v);
+	Node* copyRow(Node* row);
 };
 
-template <typename T>
 class Matrix
 {
 private:
-	Node<T>* m;
+	Node* m;
 	int rows, cols;
 
 public:
 	Matrix();
-	Matrix(T** array, const int arRows, const int arCols); //check syntax on this
+	Matrix(double** array, const int arRows, const int arCols); //check syntax on this
 	Matrix(const Matrix& obj);
 	Matrix(const Matrix&& obj);
 	Matrix& operator=(const Matrix& obj);
@@ -30,7 +28,7 @@ public:
 
 	Matrix& getRow(int row);
 	Matrix& getCol(int col);
-	T& getElement(int row, int col);
+	double& getElement(int row, int col);
 	Matrix& transpose(const Matrix& obj);
 	Matrix& operator+(const Matrix& obj);
 	Matrix& operator*(const Matrix& obj);

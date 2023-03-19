@@ -1,45 +1,43 @@
 #include "Matrix.h"
 
-template <typename T>
-Node<T>::Node() {
+Node::Node() {
+	value = 0;
 	nextInRow = nextInCol = nullptr;
 }
 
-template <typename T>
-Node<T>::Node(T& v) {
+Node::Node(double& v) {
 	value = v;
 	nextInRow = nextInCol = nullptr;
 }
 
-template<typename T>
-Node<T>* Node<T>::copyRow(Node<T> row)
-{
+Node* Node::copyRow(Node* row) {
 	if(row == nullptr)
 		return row;
-	Node<T>* firstInRow = new Node<T>(row->value);
+	Node* firstInRow = new Node(row->value);
 	firstInRow->nextInRow = copyRow(row->nextInRow);
 	return firstInRow;
 }
 
-template <typename T>
-Matrix<T>::Matrix() {
-	m = new Node<T>();
+Matrix::Matrix() {
+	m = new Node();
 	rows = cols = 1;
 }
 
-template <typename T>
-Matrix<T>::Matrix(T** array, const int arRows, const int arCols) {
-	m = new Node<T>(array[0][0]);
-	Node<T>* saved = m;
+Matrix::Matrix(double** array, const int arRows, const int arCols) {
+	m = new Node(array[0][0]);
+	rows = arRows;
+	cols = arCols;
+
+	Node* saved = m;
 	//build first row
 	for (int i = 1; i < arCols; i++) {
-		Node<T>* newNode = new Node<T>(array[i][0]);
+		Node* newNode = new Node(array[i][0]);
 		saved->nextInRow = newNode;
 		saved = newNode;
 	}
 
 	saved = m;
-	Node<T>* rowUp = m;
+	Node* rowUp = m;
 
 	//fill out rest of matrix
 	for(int i = 1; i < arRows; i++) {
@@ -53,12 +51,12 @@ Matrix<T>::Matrix(T** array, const int arRows, const int arCols) {
 			}
 		}
 
-		Node<T>* firstInRow = new Node<T>(array[i][0]);
+		Node* firstInRow = new Node(array[i][0]);
 		saved->nextInCol = firstInRow;
 		saved = firstInRow;
 
 		for (int j = 1; j < arCols; j++) {
-			Node<T>* newNode = new Node<T>(array[i][j]);
+			Node* newNode = new Node(array[i][j]);
 			saved->nextInRow = newNode;
 			rowUp->nextInCol = newNode;
 			rowUp = rowUp->nextInRow;
@@ -66,16 +64,17 @@ Matrix<T>::Matrix(T** array, const int arRows, const int arCols) {
 	}
 }
 
-template <typename T>
-Matrix<T>::Matrix(const Matrix& obj) {
-	Node<T>* endMarker = nullptr;
-	Node<T>* prevRow = nullptr;
+Matrix::Matrix(const Matrix& obj) {
+	Node* endMarker = nullptr;
+	Node* prevRow = nullptr;
 
-	m = new Node<T>();
+	m = new Node();
 	m->value = obj.m->value;
+	rows = obj.rows;
+	cols = obj.cols;
 
 	while (m != nullptr) {
-		Node<T>* curRow = copyRow(obj.m);
+		Node* curRow = m->copyRow(m);
 
 		m = m->nextInCol;
 
@@ -84,7 +83,7 @@ Matrix<T>::Matrix(const Matrix& obj) {
 		}
 
 		if (prevRow != nullptr) {
-			for (Node<T>* prevTemp = prevRow, *curTemp = curRow;
+			for (Node* prevTemp = prevRow, *curTemp = curRow;
 				prevTemp->nextInRow != nullptr;
 				prevTemp = prevTemp->nextInRow, curTemp = curTemp->nextInRow) {
 				
