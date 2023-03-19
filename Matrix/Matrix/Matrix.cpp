@@ -2,7 +2,6 @@
 
 template <typename T>
 Node<T>::Node() {
-	//do we need to do anything for value here?
 	nextInRow = nextInCol = nullptr;
 }
 
@@ -29,7 +28,7 @@ Matrix<T>::Matrix() {
 }
 
 template <typename T>
-Matrix<T>::Matrix(T array[][100], const int arRows, const int arCols) {
+Matrix<T>::Matrix(T** array, const int arRows, const int arCols) {
 	m = new Node<T>(array[0][0]);
 	Node<T>* saved = m;
 	//build first row
@@ -70,7 +69,7 @@ Matrix<T>::Matrix(T array[][100], const int arRows, const int arCols) {
 template <typename T>
 Matrix<T>::Matrix(const Matrix& obj) {
 	Node<T>* endMarker = nullptr;
-	Node<T>* prevRow;
+	Node<T>* prevRow = nullptr;
 
 	m = new Node<T>();
 	m->value = obj.m->value;

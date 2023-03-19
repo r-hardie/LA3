@@ -11,28 +11,26 @@ int main() {
 	const int arrayRows = 5;
 	const int arrayCols = 3;
 
-		//int testArray[5][3] = {
-		//	1,2,3,
-		//	4,5,6,
-		//	7,8,9,
-		//	10,11,12,
-		//	13,14,15
-		//};	
-	
-	int* testArray = new array[5][3];
+	int** testArray = new int* [arrayRows];
+	for (int i = 0; i < arrayRows; i++) {
+		testArray[i] = new int[arrayCols];
+	}
+	for (int i = 0; i < arrayRows; i++) {
+		for (int j = 0; j < arrayCols; j++) {
+			testArray[i][j] = i + j;
+		}
+	}
 
-
-	testArray = {
-		1,2,3,
-		4,5,6,
-		7,8,9,
-		10,11,12,
-		13,14,15
-	};
+	for (int i = 0; i < arrayRows; i++) {
+		for (int j = 0; j < arrayCols; j++) {
+			cout << testArray[i][j];
+		}
+	}
 
 
 
-	Matrix<int>* arrayMatrix = new Matrix<int>(testArray, arrayRows, arrayCols);
+
+	//Matrix<int>* arrayMatrix = new Matrix<int>(testArray, arrayRows, arrayCols);
 
 
 	//copy constructor

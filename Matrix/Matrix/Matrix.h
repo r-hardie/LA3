@@ -21,7 +21,7 @@ private:
 
 public:
 	Matrix();
-	Matrix(T* array, const int arRows, const int arCols); //check syntax on this
+	Matrix(T** array, const int arRows, const int arCols); //check syntax on this
 	Matrix(const Matrix& obj);
 	Matrix(const Matrix&& obj);
 	Matrix& operator=(const Matrix& obj);
