@@ -16,12 +16,12 @@ template <typename T>
 class Matrix
 {
 private:
-	Node* m;
+	Node<T>* m;
 	int rows, cols;
 
 public:
 	Matrix();
-	Matrix(const T array[][100], int arRows, int arCols); //check syntax on this
+	Matrix(T* array, const int arRows, const int arCols); //check syntax on this
 	Matrix(const Matrix& obj);
 	Matrix(const Matrix&& obj);
 	Matrix& operator=(const Matrix& obj);
@@ -35,7 +35,7 @@ public:
 	Matrix& operator+(const Matrix& obj);
 	Matrix& operator*(const Matrix& obj);
 
-	friend ostream& operator<<(ostream& output, const Matrix& obj);
+	//friend ostream& operator<<(ostream& output, const Matrix<T>& obj);
 
 };
 

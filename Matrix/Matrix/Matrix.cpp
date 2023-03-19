@@ -24,12 +24,12 @@ Node<T>* Node<T>::copyRow(Node<T> row)
 
 template <typename T>
 Matrix<T>::Matrix() {
-	first = new Node<T>();
+	m = new Node<T>();
 	rows = cols = 1;
 }
 
 template <typename T>
-Matrix<T>::Matrix(const T array[][100], int arRows, int arCols) {
+Matrix<T>::Matrix(T array[][100], const int arRows, const int arCols) {
 	m = new Node<T>(array[0][0]);
 	Node<T>* saved = m;
 	//build first row
@@ -43,7 +43,7 @@ Matrix<T>::Matrix(const T array[][100], int arRows, int arCols) {
 	Node<T>* rowUp = m;
 
 	//fill out rest of matrix
-	for (int i = 1; i < arRows; i++) {
+	for(int i = 1; i < arRows; i++) {
 		//
 		if (saved->nextInRow == nullptr) {
 			saved = m;
@@ -92,7 +92,7 @@ Matrix<T>::Matrix(const Matrix& obj) {
 				prevTemp->nextInCol = curTemp;
 			}
 		}
-		prevRow = curRow
+		prevRow = curRow;
 		
 	}
 }

@@ -1,21 +1,41 @@
 #include "Matrix.h"
 #include <iostream>
+using namespace std;
 
-//default constructor
-Matrix<int>* emptyMatrix = new Matrix<int>();
+int main() {
 
-//parameterized constructor
-int arrayRows = 5;
-int arrayCols = 3;
-int testArray[arrayRows][arrayCols] = {
-	1,2,3,
-	4,5,6,
-	7,8,9,
-	10,11,12,
-	13,14,15
-};
+	//default constructor
+	Matrix<int>* emptyMatrix = new Matrix<int>();
 
-Matrix<int>* arrayMatrix = new Matrix<int>(testArray[][], arrayRows, arrayCols);
+	//parameterized constructor
+	const int arrayRows = 5;
+	const int arrayCols = 3;
+
+		//int testArray[5][3] = {
+		//	1,2,3,
+		//	4,5,6,
+		//	7,8,9,
+		//	10,11,12,
+		//	13,14,15
+		//};	
+	
+	int* testArray = new array[5][3];
 
 
-//copy constructor
+	testArray = {
+		1,2,3,
+		4,5,6,
+		7,8,9,
+		10,11,12,
+		13,14,15
+	};
+
+
+
+	Matrix<int>* arrayMatrix = new Matrix<int>(testArray, arrayRows, arrayCols);
+
+
+	//copy constructor
+
+	return 0;
+}
